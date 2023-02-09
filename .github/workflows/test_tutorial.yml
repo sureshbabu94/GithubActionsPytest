@@ -5,8 +5,7 @@ on:
     branches:
       -main
 
-#  schedule:
-#    -cron:  '0 00 * * *'
+
 
   workflow_dispatch:
 
