@@ -5,13 +5,16 @@ on:
     branches:
       -main
 
-
-
   workflow_dispatch:
+
+env:
+  PLAN_NAME: GithubActionsPytest
 
 jobs:
   build:
     runs-on:  ubuntu-latest
+    env:
+      JOB_NAME: build
     steps:
       - name: Checking out Github Repo
         uses: actions/checkout@v3
@@ -21,6 +24,9 @@ jobs:
           python-version: '3.10'
       - name: Installing package list
         run: apt list --installed
+
+      - name: Print Environment Variables
+        run: echo "$PLAN_NAME and $JOB_NAME"
 
       - name: Download Chrome, Virtualenv and Packages and Run Pytest
         run: |
