@@ -30,6 +30,8 @@ jobs:
           sudo dpkg -i google-chrome-stable_current_amd64.deb
           google-chrome --version
           chrome --version
+          virtualenv venv
+          source venv/bin/activate
           pip install -r requirements.txt
           cd TestCases
           pytest -vs TestTutorial.py
