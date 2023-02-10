@@ -42,7 +42,6 @@ jobs:
       - name: Run Pytest
         run: |
           cd TestCases
-#          pytest --version
           python -m pytest -vs TestTutorial.py
 
       - name: Output Result
