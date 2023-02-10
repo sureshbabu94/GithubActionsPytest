@@ -35,4 +35,10 @@ jobs:
           pip install -r requirements.txt
           cd TestCases
           pytest -vs TestTutorial.py
+
+      - name: Output Result
+        uses: actions/upload-artifact@v3
+        with:
+          name: Output Screenshot
+          path: output/screen.png
           
