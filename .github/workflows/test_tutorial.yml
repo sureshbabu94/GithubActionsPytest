@@ -42,8 +42,8 @@ jobs:
       - name: Run Pytest
         run: |
           cd TestCases
-          pytest --version
-          pytest -vs TestTutorial.py
+#          pytest --version
+          python -m pytest -vs TestTutorial.py
 
       - name: Output Result
         uses: actions/upload-artifact@v3
