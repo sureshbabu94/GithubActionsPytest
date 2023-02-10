@@ -36,5 +36,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Output Screenshot
-          path: output/screen.png
+          path: TestCases/output/screen.png
           
