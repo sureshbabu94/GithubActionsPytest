@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-import time
+import time,os,shutil
 
 def test_tutorial():
     options = Options()
@@ -13,4 +13,10 @@ def test_tutorial():
     driver.maximize_window()
     time.sleep(5)
     print("browser opened")
+    print(os.getcwd())
+    if os.path.exists(os.path.join(os.getcwd(),'output')):
+        shutil.rmtree(os.path.join(os.getcwd(),'output'))
+
+    os.mkdir('output')
+    driver.save_screenshot('output/screen.png')
     driver.close()

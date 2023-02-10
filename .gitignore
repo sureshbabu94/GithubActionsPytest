@@ -2,3 +2,4 @@ venv
 main.py
 .idea
 .pytest_cache
+output
