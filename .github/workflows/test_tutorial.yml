@@ -43,4 +43,16 @@ jobs:
         with:
           name: Output Screenshot
           path: TestCases/output/screen.png
+
+      - name: Failure Run
+        if: failure()
+        run:  echo "failure occured"
+
+      - name: Success Run
+        if: success()
+        run:  echo "success occured"
+
+      - name: Always Run
+        if: always()
+        run:  echo "always occured"
           
