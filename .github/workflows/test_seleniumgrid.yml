@@ -62,7 +62,7 @@ jobs:
 
       - name: CURL
         run: |
-          curl https://localhost:4444/wd/hub
+          curl http://localhost:4444/wd/hub
 
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
