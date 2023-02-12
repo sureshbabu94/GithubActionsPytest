@@ -63,7 +63,7 @@ jobs:
       - name: Installing package list
         run: |
           apt list --installed
-          curl -Is https//:localhost:4444/wd/hub | head -n 1
+          curl -Is https://localhost:4444/wd/hub | head -n 1
 
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
