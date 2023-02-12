@@ -68,17 +68,23 @@ jobs:
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
           docker-compose up -d
+          sleep 10
           docker ps -a
-          sleep 60
           pip install -r requirements.txt
           pytest --version
           cd TestCases
           python -m pytest -vs TestSeleniumGrid.py
+
+      - name: Check docker container status after running test case
+        if: always()
+        run:  docker ps -a
 
       - name: Output Result
         uses: actions/upload-artifact@v3
         with:
           name: Output Screenshot
           path: TestCases/output/screen.png
+
+
 
 
