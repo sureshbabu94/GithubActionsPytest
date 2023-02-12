@@ -60,11 +60,9 @@ jobs:
         run: |
           docker-compose up -d
 
-      - name: Installing package list
+      - name: CURL
         run: |
-          apt list --installed
-          apt install ping
-          ping https://localhost:4444/wd/hub
+          curl google.com
 
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
