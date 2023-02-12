@@ -10,12 +10,14 @@ def test_seleniumgrid():
     configs = Properties()
     with open(os.path.abspath(os.path.join(os.getcwd(), os.pardir,'settings.properties')), 'rb') as config_file:
         configs.load(config_file)
-    if configs.get('BROWSER_NAME')=='firefox':
+    if configs.get('BROWSER_NAME').data=='firefox':
         browser_options=FirefoxOptions()
+        browser_options.accept_insecure_certs=True
         browser_options.add_argument('ignore-certificate-errors')
     else:
         browser_options=ChromeOptions()
-        browser_options.add_argument('ignore-certificate-errors')
+        browser_options.accept_insecure_certs=True
+        browser_options.add_argument('--ignore-certificate-errors')
 
     # desired_capabilities = {'browserName': "chrome", 'javascriptEnabled': True,'acceptInsecureCerts':True}
     driver = webdriver.Remote(command_executor='https://localhost:4444/wd/hub',options=browser_options)
