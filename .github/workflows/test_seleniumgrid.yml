@@ -57,12 +57,15 @@ jobs:
           python-version: '3.10'
 
       - name: Docker Compose
-        run: docker-compose up -d
+        run: |
+          docker-compose up -d
+
       - name: Installing package list
         run: apt list --installed
 
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
+          docker ps -a
           pip install -r requirements.txt
           pytest --version
           cd TestCases
