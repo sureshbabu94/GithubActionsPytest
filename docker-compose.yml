@@ -23,5 +23,5 @@ services:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
 networks:
-  mynet:
+  githubactionspytest_default:
     driver: bridge

@@ -63,7 +63,7 @@ jobs:
       - name: CURL and Update apt
         run: |
           sudo apt update && sudo apt upgrade -y
-          curl http://127.0.0.1:4444/wd/hub/status
+          curl http://localhost:4444/wd/hub/
 
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
