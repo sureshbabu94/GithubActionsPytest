@@ -57,7 +57,7 @@ jobs:
           python-version: '3.10'
 
 
-      - name: CURL and Update apt
+      - name: Update APT packages
         run: |
           sudo apt update && sudo apt upgrade -y
 
@@ -68,14 +68,14 @@ jobs:
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
           docker-compose up -d
-          sleep 10
+          sleep 2
           docker ps -a
           pip install -r requirements.txt
           pytest --version
           cd TestCases
           python -m pytest -vs TestSeleniumGrid.py
 
-      - name: Check docker container status after running test case
+      - name: Check docker container status after executing test case
         if: always()
         run:  docker ps -a
 
