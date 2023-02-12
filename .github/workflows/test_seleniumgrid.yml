@@ -56,14 +56,14 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Docker Compose
-        run: |
-          docker-compose up -d
 
       - name: CURL and Update apt
         run: |
           sudo apt update && sudo apt upgrade -y
-          
+
+      - name: Docker Compose
+        run: |
+          docker-compose up -d
 
       - name: Install Virtualenv, Dependencies and Run Pytest
         run: |
