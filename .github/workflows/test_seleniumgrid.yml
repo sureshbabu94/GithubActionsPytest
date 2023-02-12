@@ -68,7 +68,7 @@ jobs:
           docker ps -a
           ifconfig
           ip addr
-          ping 127.0.0.1:4444/wd/hub
+          curl -Is https//:localhost:4444/wd/hub | head -n 1
           pip install -r requirements.txt
           pytest --version
           cd TestCases
