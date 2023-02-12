@@ -8,7 +8,7 @@ def test_seleniumgrid():
     # options = Options()
     # options.add_argument('--headless')
     # options.add_argument('--disable-gpu')
-    desired_capabilities = {'browserName': "chrome", 'javascriptEnabled': True}
+    desired_capabilities = {'browserName': "chrome", 'javascriptEnabled': True,'acceptInsecureCerts':True}
     driver = webdriver.Remote(command_executor='https://localhost:4444/wd/hub',desired_capabilities=desired_capabilities)
     driver.get("https://www.whatismybrowser.com/")
     driver.maximize_window()
