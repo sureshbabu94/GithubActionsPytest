@@ -48,14 +48,16 @@ jobs:
 #            - "4444:4444"
 
     steps:
-      - name: Docker Compose
-        run:  docker-compose up -d
+
       - name: Checking out Github Repo
         uses: actions/checkout@v3
       - name: Setting up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+
+      - name: Docker Compose
+          run: docker-compose up -d
       - name: Installing package list
         run: apt list --installed
 
