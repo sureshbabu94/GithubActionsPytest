@@ -8,7 +8,7 @@ from jproperties import Properties
 
 def test_seleniumgrid():
     configs = Properties()
-    with open('settings.properties', 'rb') as config_file:
+    with open(os.path.abspath(os.path.join(os.getcwd(), os.pardir,'settings.properties')), 'rb') as config_file:
         configs.load(config_file)
     if configs.get('BROWSER_NAME')=='firefox':
         browser_options=FirefoxOptions()
