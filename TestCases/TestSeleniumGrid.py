@@ -17,7 +17,7 @@ def test_seleniumgrid():
         browser_options=ChromeOptions()
         browser_options.add_argument('ignore-certificate-errors')
 
-    desired_capabilities = {'browserName': "chrome", 'javascriptEnabled': True,'acceptInsecureCerts':True}
+    # desired_capabilities = {'browserName': "chrome", 'javascriptEnabled': True,'acceptInsecureCerts':True}
     driver = webdriver.Remote(command_executor='https://localhost:4444/wd/hub',options=browser_options)
     driver.get("https://www.whatismybrowser.com/")
     driver.maximize_window()
