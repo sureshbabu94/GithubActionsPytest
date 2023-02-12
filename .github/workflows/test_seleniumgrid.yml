@@ -18,35 +18,38 @@ jobs:
     env:
       JOB_NAME: build
 
-    services:
-      chrome:
-        image: selenium/node-chrome:4.8.0-20230210
-        shm_size: 2gb
-        depends_on:
-          - selenium-hub
-        environment:
-          - SE_EVENT_BUS_HOST=selenium-hub
-          - SE_EVENT_BUS_PUBLISH_PORT=4442
-          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+#    services:
+#      chrome:
+#        image: selenium/node-chrome:4.8.0-20230210
+#        shm_size: 2gb
+#        depends_on:
+#          - selenium-hub
+#        environment:
+#          - SE_EVENT_BUS_HOST=selenium-hub
+#          - SE_EVENT_BUS_PUBLISH_PORT=4442
+#          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+#
+#        firefox:
+#          image: selenium/node-firefox:4.8.0-20230210
+#          shm_size: 2gb
+#          depends_on:
+#            - selenium-hub
+#          environment:
+#            - SE_EVENT_BUS_HOST=selenium-hub
+#            - SE_EVENT_BUS_PUBLISH_PORT=4442
+#            - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+#
+#        selenium-hub:
+#          image: selenium/hub:4.8.0-20230210
+#          container_name: selenium-hub
+#          ports:
+#            - "4442:4442"
+#            - "4443:4443"
+#            - "4444:4444"
 
-        firefox:
-          image: selenium/node-firefox:4.8.0-20230210
-          shm_size: 2gb
-          depends_on:
-            - selenium-hub
-          environment:
-            - SE_EVENT_BUS_HOST=selenium-hub
-            - SE_EVENT_BUS_PUBLISH_PORT=4442
-            - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
-        selenium-hub:
-          image: selenium/hub:4.8.0-20230210
-          container_name: selenium-hub
-          ports:
-            - "4442:4442"
-            - "4443:4443"
-            - "4444:4444"
     steps:
+      - name: Docker Compose
+        run:  docker-compose up -d
       - name: Checking out Github Repo
         uses: actions/checkout@v3
       - name: Setting up Python
