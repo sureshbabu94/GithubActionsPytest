@@ -8,6 +8,17 @@ on:
 #      -main
 
   workflow_dispatch:
+    inputs:
+      browser:
+        type: choice
+        description: select browser name
+        options:
+          - chrome
+          - firefox
+        message:
+          required: true
+
+
 
 env:
   PLAN_NAME: GithubActionsPytest
@@ -56,5 +67,7 @@ jobs:
 
       - name: Always Run
         if: always()
-        run:  echo "always occured"
+        run:  |
+          echo "always occured"
+          echo "${{ github.event.inputs.message }}"
           
