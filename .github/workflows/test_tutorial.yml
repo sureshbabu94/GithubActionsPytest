@@ -69,5 +69,5 @@ jobs:
         if: always()
         run:  |
           echo "always occured"
-          echo "${{ github.event.inputs.message }}"
+          echo "${{ github.event.inputs.browser }}"
           
