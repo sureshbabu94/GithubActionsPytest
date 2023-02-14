@@ -59,7 +59,10 @@ jobs:
 
       - name: Update APT packages
         run: |
-          sudo apt update && sudo apt upgrade -y
+          sudo apt update
+          sudo apt install --only-upgrade openssl
+#          sudo apt update && sudo apt upgrade -y
+
 
       - name: Docker Compose
         run: |
